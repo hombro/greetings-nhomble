@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation('org.junit.jupiter:junit-jupiter:5.6.0')
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+jar {
+    archiveBaseName = 'greeting'
+    archiveVersion =  '0.1.0'
+    manifest {
+        attributes 'Main-Class': 'edu.fcc.cmis106.greetings.Greeting'
+    }
+}
